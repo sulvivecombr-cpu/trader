@@ -1,0 +1,23 @@
+{
+  "previewPort": 3000,
+  "healthPath": "/auth/login",
+  "startCommand": "docker compose -f docker-compose.base44.yml up -d",
+  "secrets": [
+    {
+      "name": "SECRET_KEY",
+      "description": "Flask session signing key. A development placeholder is set in .env.base44-defaults; override with a real value for persistent sessions.",
+      "requiredAtBoot": false,
+      "generatedForDevelopment": true
+    },
+    {
+      "name": "OPENAI_API_KEY",
+      "description": "OpenAI API key for the AI investment advisor/assessor features. Optional — the app runs without it; AI endpoints return graceful fallbacks.",
+      "requiredAtBoot": false
+    },
+    {
+      "name": "BRAPI_API_KEY",
+      "description": "Brapi.dev API key for premium dividend/quote data. Optional — a fallback token is hardcoded and yfinance is used as backup.",
+      "requiredAtBoot": false
+    }
+  ]
+}
